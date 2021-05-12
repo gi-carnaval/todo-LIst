@@ -34,11 +34,17 @@ export function TaskList() {
 
   function handleToggleTaskCompletion(id: number) {
     // Altere entre `true` ou `false` o campo `isComplete` de uma task com dado ID
-    
+    const newTasks = [...tasks];
+    const indexTask = tasks.findIndex(task => task.id === id);
+    console.log(indexTask);
+    newTasks[indexTask] = { ...newTasks[indexTask], isComplete: !newTasks[indexTask].isComplete }
+    setTasks(newTasks);
   }
 
   function handleRemoveTask(id: number) {
     // Remova uma task da listagem pelo ID
+    const Removedtask = tasks.filter(task => task.id !== id);
+    setTasks(Removedtask);
   }
 
   return (
@@ -49,7 +55,7 @@ export function TaskList() {
         <div className="input-group">
           <input
             type="text"
-            placeholder="Adicionar novo To Do"
+            placeholder="Adicionar novo todo"
             onChange={(e) => setNewTaskTitle(e.target.value)}
             value={newTaskTitle}
           />
