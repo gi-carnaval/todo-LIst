@@ -2,16 +2,17 @@ section.task-list {
   background: var(--shapes);
   border-radius: 1rem;
   
-  margin-top: -10rem;
+  margin: -10rem auto;
   padding: 70px 60px;
+
   
   filter: drop-shadow(0px 24px 64px rgba(0, 0, 0, 0.06));
-  
-  header {
+   header {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    margin: 10px;
     
     h2 {
       color: var(--text-title);
@@ -60,7 +61,34 @@ section.task-list {
       }
     }
   }
+  @media only screen and (max-width: 450px){
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
 
+      width: 151px;
+
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+  }
+  @media only screen and (max-width: 615px) and ( min-width: 450px){
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+
+      //width: 151px;
+
+      h2 {
+        font-size: 2rem;
+      }
+    }
+  }
   main {
     margin-top: 3rem;
 
@@ -157,5 +185,10 @@ section.task-list {
         }
       }
     } 
+  }
+}
+@media only screen and (max-width: 1120px){
+  section.task-list {
+    margin: -10rem 1rem;
   }
 }
